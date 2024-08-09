@@ -53,29 +53,29 @@ $(document).ready(function () {
   })
 })
 
-$(document).ready(function() {
+$(document).ready(function () {
   let currentIndex = 0;
   const galleries = $('.gallery');
 
-  $(document).on('click', '.open-modal', function(e) {
+  $(document).on('click', '.open-modal', function (e) {
     e.preventDefault();
     const gallery = $(this).closest('.gallery');
     currentIndex = galleries.index(gallery);
     showPopup(currentIndex);
   });
 
-  $(document).on('click', '.close-btn', function() {
+  $(document).on('click', '.close-btn', function () {
     $('#imagePopup').removeClass('show');
   });
 
-  $(document).on('click', '.prev-btn', function() {
+  $(document).on('click', '.prev-btn', function () {
     if (currentIndex > 0) {
       currentIndex--;
       showPopup(currentIndex);
     }
   });
 
-  $(document).on('click', '.next-btn', function() {
+  $(document).on('click', '.next-btn', function () {
     if (currentIndex < galleries.length - 1) {
       currentIndex++;
       showPopup(currentIndex);
@@ -85,7 +85,7 @@ $(document).ready(function() {
   function showPopup(index) {
     const gallery = galleries.eq(index);
     const imgSrc = gallery.find('img').attr('src');
-    const galleryClass = gallery.attr('class').split(' ')[1]; 
+    const galleryClass = gallery.attr('class').split(' ')[1];
 
     $('#popupImage').attr('src', imgSrc);
     $('#popupHeading').text('Photo/Template Heading');
